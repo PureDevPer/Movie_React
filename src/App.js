@@ -8,8 +8,7 @@ class App extends React.Component {
 		isLoading: true,
 		movies: []
 	};
-
-	getMoives = async () => {
+	getMovies = async () => {
 		const {
 			data: {
 				data: { movies }
@@ -19,35 +18,32 @@ class App extends React.Component {
 		);
 		this.setState({ movies, isLoading: false });
 	};
-
 	componentDidMount() {
-		this.getMoives();
+		this.getMovies();
 	}
 	render() {
 		const { isLoading, movies } = this.state;
 		return (
-			<section class="container">
-				{' '}
+			<section className="container">
 				{isLoading ? (
-					<div class="loader">
-						<span class="loader__text">Loading...</span>
+					<div className="loader">
+						<span className="loader__text">Loading...</span>
 					</div>
 				) : (
-					movies.map(movie => {
-						return (
-							<div class="movie">
-								<Movie
-									key={movie.id}
-									id={movie.id}
-									year={movie.year}
-									title={movie.title}
-									summary={movie.summary}
-									poster={movie.medium_cover_image}
-								/>
-							</div>
-						);
-					})
-				)}{' '}
+					<div className="movies">
+						{movies.map(movie => (
+							<Movie
+								key={movie.id}
+								id={movie.id}
+								year={movie.year}
+								title={movie.title}
+								summary={movie.summary}
+								poster={movie.medium_cover_image}
+								genres={movie.genres}
+							/>
+						))}
+					</div>
+				)}
 			</section>
 		);
 	}
