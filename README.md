@@ -1,6 +1,6 @@
 # Movie Web Application Using React JS
 
-[![React](https://img.shields.io/badge/React-16.9.0-green.svg)]
+![React](https://img.shields.io/badge/React-16.9.0-green.svg)
 
 <details><summary><b>React Basic Definitions</b></summary>
 <p>
